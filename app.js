@@ -1,3 +1,21 @@
+require('dotenv').config(); // Enhancement: Load environment variables from .env file
+
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+mongoose.connection.on('connected', () => {
+  console.log('MongoDB connected');
+});
+
+mongoose.connection.on('error', err => {
+  console.error('MongoDB connection error:', err.message);
+});
+
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -7,6 +25,10 @@ var logger = require('morgan');
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 var travelRouter = require('./app_server/routes/travel');
+
+// Enhancement: Register new modular trip routes
+var tripRouter = require('./app_server/routes/trips');
+
 var handlebars = require('hbs');
 
 var app = express();
@@ -27,6 +49,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/travel', travelRouter);
+
+// Enhancement: Mount trip routes under /api namespace
+app.use('/api/trips', tripRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

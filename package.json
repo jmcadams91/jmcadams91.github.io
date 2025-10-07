@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node ./bin/www",
+    "start:client": "ng serve",
+    "debug": "node --inspect-brk .",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:server": "jest"
   },
   "prettier": {
     "overrides": [

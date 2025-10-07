@@ -1,18 +1,43 @@
 const mongoose = require('mongoose');
 const Trip = require('../models/travlr'); // Register model
+const { isAvailable } = require('../../utils/availability'); // Import availability utility
 
-// GET: /trips - lists all the trips 
-// Regardless of outcome, response must include HTML status code
-// and JSON message to the requesting client
+// GET: /trips - lists all the trips with optional search, sort, and availability filters
+// Time Complexity: O(n log n) with sort, O(n) with filter
+// Edge Cases: Missing or invalid query params default to full list
 const tripsList = async (req, res) => {
-    try {
-        const q = await Trip.find({}).exec();  // No filter, return all records
-        return res.status(200).json(q);
-       } catch (err) {
-        console.error('Error in tripsList:', err);
-        return res.status(500).json({ message: "Error retrieving trips", error: err });
+  try {
+    const { search, sortBy, date } = req.query;
+
+    // Case-insensitive search filter
+    const filter = search
+      ? { name: { $regex: search, $options: 'i' } }
+      : {};
+
+    // Sorting logic
+    const sortOptions = {};
+    if (['perPerson', 'rating', 'location'].includes(sortBy)) {
+      sortOptions[sortBy] = 1; // Ascending
     }
+
+    // Initial query
+    let trips = await Trip.find(filter).sort(sortOptions).exec();
+
+    // Availability filter using utility function
+    // Time Complexity: O(n)
+    // Edge Case: Invalid date format → excluded by isAvailable()
+
+    if (date) {
+      trips = trips.filter(trip => isAvailable(trip.start, date));
+    }
+
+    return res.status(200).json(trips);
+  } catch (err) {
+    console.error('Error in tripsList:', err);
+    return res.status(500).json({ message: "Error retrieving trips", error: err.message });
+  }
 };
+
 
 // GET: /trips/:tripCode - lists a single trip
 // Regardless of outcome, response must include HTML status code

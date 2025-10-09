@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.8.7",
+    "mongoose-unique-validator": "^4.0.1",
+    "whatwg-url": "^15.1.0"
+  }
+}

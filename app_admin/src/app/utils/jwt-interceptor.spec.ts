@@ -1,14 +1,16 @@
-import { TestBed } from '@angular/core/testing';
-import { HttpInterceptorFn } from '@angular/common/http';
+import { JwtInterceptor } from './jwt-interceptor';
+import { AuthenticationService } from '../services/authentication.service';
 
-import { jwtInterceptor } from './jwt-interceptor';
-
-describe('jwtInterceptor', () => {
-  const interceptor: HttpInterceptorFn = (req, next) => 
-    TestBed.runInInjectionContext(() => jwtInterceptor(req, next));
+describe('JwtInterceptor', () => {
+  let interceptor: JwtInterceptor;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    // create a minimal mock AuthenticationService
+    const mockAuth: Partial<AuthenticationService> = {
+      isLoggedIn: () => false,
+      getToken: () => ''
+    };
+    interceptor = new JwtInterceptor(mockAuth as AuthenticationService);
   });
 
   it('should be created', () => {

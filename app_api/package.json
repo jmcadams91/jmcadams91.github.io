@@ -1,0 +1,18 @@
+{
+  "name": "travlr-api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "dependencies": {
+    "mongoose": "^7.5.0",
+    "mongoose-unique-validator": "^3.0.0",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "supertest": "^6.3.3",
+    "mongodb-memory-server": "^8.12.0"
+  }
+}

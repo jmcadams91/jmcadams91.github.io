@@ -2,19 +2,28 @@ const mongoose = require('mongoose');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 
+const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\\.,;:\s@\"]+\.)+[^<>()[\]\\.,;:\s@\"]{2,})$/i;
+
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
-    required: true
+    required: [true, 'Email is required'],
+    trim: true,
+    lowercase: true,
+    match: [emailRegex, 'Please fill a valid email address']
   },
   name: {
     type: String,
-    required: true
+    required: [true, 'Name is required'],
+    trim: true
   },
   hash: String,
   salt: String
 });
+
+// Note: mongoose-unique-validator was removed because it is incompatible with Mongoose v7+
+// We rely on the unique index and MongoDB duplicate key errors (code 11000) instead.
 
 // Method to securely set a password
 userSchema.methods.setPassword = function(password) {

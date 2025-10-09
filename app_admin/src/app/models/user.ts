@@ -1,30 +1,16 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
+// Frontend User model (client-side)
+// Note: the server-side Mongoose model lives in the API project.
+// This class provides a runtime value and a TypeScript type for the
+// Angular application and unit tests.
 
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    match: /.+@.+\..+/
-  },
-  password: {
-    type: String,
-    required: true
+export default class User {
+  name: string;
+  email: string;
+  password?: string;
+
+  constructor(init?: Partial<User>) {
+    this.name = init?.name ?? '';
+    this.email = init?.email ?? '';
+    this.password = init?.password;
   }
-});
-
-// Hash password before saving
-userSchema.pre('save', async function () {
-  if (this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 10);
-  }
-});
-
-const User = mongoose.model('User', userSchema);
-export default User;
+}

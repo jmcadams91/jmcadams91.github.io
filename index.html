@@ -12,6 +12,10 @@ body {
 
     /* Background */
     background-image: url('/assets/images/bokeh-background.png');
+    /* NOTE: For a cleaner look, ensure the file path above points to a 
+       high-resolution image (e.g., 1920x1080 or larger) to avoid fuzziness 
+       when stretched.
+    */
     background-size: cover;
     background-attachment: fixed;
     background-position: center center;
@@ -21,92 +25,113 @@ body {
 /* Frosted Window Container */
 .container {
     display: flex;
-    max-width: 1400px; /* Make it wider to resemble Image 1 */
-    margin: 60px auto; /* More margin to show background */
+    max-width: 1400px; /* Wider window */
+    margin: 60px auto; /* Margin to show background */
     padding: 40px; /* Padding inside the frosted window */
     background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
-    border-radius: 20px; /* Rounded corners for the window effect */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Frosted glass shadow */
-    backdrop-filter: blur(10px); /* The frosted glass effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border */
-    overflow: hidden; /* Important for border-radius on child elements */
+    border-radius: 20px; 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
+    
+    /* Reduced blur for a cleaner look against the background */
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); 
+    
+    border: 1px solid rgba(255, 255, 255, 0.18); 
+    overflow: hidden; 
+    
+    /* Ensure the container is tall enough to center the sidebar content */
+    min-height: 700px; 
 }
 
-/* Sidebar styling - now part of the frosted window */
+/* Sidebar styling - now centered vertically */
 .sidebar {
     width: 350px;
-    padding-right: 40px; /* Increased padding */
-    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
-    text-align: center; /* Center aligning content in sidebar */
+    padding-right: 40px; 
+    border-right: 1px solid rgba(255, 255, 255, 0.1); 
+    
+    /* FLEXBOX CENTERING FOR PROFILE SECTION */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    
+    /* text-align: center; */ 
 }
 
 .profile-pic {
     width: 150px;
-    height: 150px; /* Added height for perfect circle */
+    height: 150px; 
     border-radius: 50%;
-    object-fit: cover; /* Ensures image covers circular area */
-    display: block;
-    margin: 0 auto 25px auto;
-    border: 3px solid rgba(255, 255, 255, 0.3); /* Lighter border for profile pic */
+    object-fit: cover; 
+    margin: 0 0 25px 0; 
+    border: 3px solid rgba(255, 255, 255, 0.3); 
 }
 
 .sidebar h1 {
+    /* Keep text-align as items are centered, but text inside needs alignment */
     text-align: center;
     margin-top: 0;
-    color: #fff; /* White title */
-    font-size: 2.2em; /* Slightly larger title */
+    color: #fff; 
+    font-size: 2.2em; 
 }
 
 .sidebar p {
-    font-size: 15px; /* Slightly larger text */
+    font-size: 15px; 
     line-height: 1.6;
     margin-bottom: 20px;
-    color: #e0e0e0; /* Light gray text */
+    color: #e0e0e0; 
+    /* Ensure P tags don't stretch too wide and push content to the left */
+    max-width: 100%; 
+    text-align: center;
 }
 
 .sidebar a {
-    color: #92e0ff; /* Bright link color */
+    color: #92e0ff; 
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 .sidebar a:hover {
-    color: #c9f5ff; /* Lighter on hover */
+    color: #c9f5ff; 
     text-decoration: underline;
 }
 
-/* Main content styling - now part of the frosted window */
+/* Main content styling - takes up remaining space */
 .main-content {
-    flex-grow: 1;
-    padding-left: 40px; /* Increased padding */
-    text-align: left; /* Align text to the left */
+    flex-grow: 1; /* Key for expanding main content */
+    padding-left: 40px; 
+    text-align: left; 
 }
 
-.main-content h1 { /* Adjusted for self-assessment */
-    font-size: 2.5em; /* Larger and bolder */
-    color: #fff; /* White for main titles */
+.main-content h1 { 
+    font-size: 2.5em; 
+    color: #fff; 
     margin-top: 0;
     margin-bottom: 25px;
     font-weight: bold;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
     padding-bottom: 15px;
 }
 
 .main-content h2, .main-content h3 {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
     padding-bottom: 10px;
     margin-top: 30px;
-    color: #fff; /* White for section titles */
+    color: #fff; 
 }
+/* Adjust margin for the Capstone header when it's at the very top */
+.main-content > h2:first-child {
+    margin-top: 0; 
+}
+
 
 .main-content h4 {
     margin-bottom: 10px;
     margin-top: 25px;
-    color: #e0e0e0; /* Light gray for project titles */
+    color: #e0e0e0; 
 }
 
-.assessment-section p { /* Paragraphs within the assessment section */
+.assessment-section p { 
     font-size: 15px;
     line-height: 1.6;
     margin-bottom: 20px;
@@ -114,8 +139,8 @@ body {
 }
 
 .assessment-section ul {
-    list-style-type: none; /* Remove default bullets if desired, or keep */
-    padding-left: 0; /* Align list to the left */
+    list-style-type: none; 
+    padding-left: 0; 
 }
 
 .assessment-section ul li {
@@ -123,13 +148,13 @@ body {
     font-size: 15px;
     line-height: 1.6;
     color: #e0e0e0;
-    padding-left: 20px; /* Indent list items */
+    padding-left: 20px; 
     position: relative;
 }
 
-.assessment-section ul li:before { /* Custom bullet point */
+.assessment-section ul li:before { 
     content: "•";
-    color: #92e0ff; /* Bullet color */
+    color: #92e0ff; 
     position: absolute;
     left: 0;
     font-size: 1.2em;
@@ -147,15 +172,15 @@ body {
 .project-images img {
     max-width: 100%;
     height: auto;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Lighter border for images */
-    border-radius: 8px; /* Slightly rounded corners for images */
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 8px; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .footer-note {
     font-size: 0.8em;
-    color: #b0b0b0; /* Lighter footer text */
-    margin-top: 40px;
+    color: #b0b0b0; 
+    margin-top: auto; /* Pushes the footer note to the bottom of the flex container */
     text-align: center;
 }
 
@@ -175,74 +200,78 @@ body {
         margin-bottom: 20px;
         padding-bottom: 20px;
         width: 100%;
+        
+        /* Reset vertical centering on small screens */
+        justify-content: flex-start; 
+        align-items: center;
     }
     .main-content { padding-left: 0; }
-    .project-images { grid-template-columns: 1fr; } /* Stack images on small screens */
+    .project-images { grid-template-columns: 1fr; } 
     .sidebar h1, .main-content h1 { font-size: 1.8em; }
     .sidebar p, .assessment-section p, .assessment-section ul li { font-size: 14px; }
 }
 </style>
 
 <div class="container">
-  <div class="sidebar">
-    <h1>Jessie McAdams</h1>
-    <img src="/assets/images/Jess.png" alt="Jessie McAdams" class="profile-pic">
+    <div class="sidebar">
+        <h1>Jessie McAdams</h1>
+        <img src="/assets/images/Jess.png" alt="Jessie McAdams" class="profile-pic">
 
-    <p>
-    Business Analyst II @ Unum | CS Capstone Developer | BS in Computer Science<br>
-    Building secure, scalable backend solutions with C#, ASP.NET Core, and database integration.<br>
-    Seeking to transition into full stack or backend development.
-    </p>
+        <p>
+        Business Analyst II @ Unum | CS Capstone Developer | BS in Computer Science<br>
+        Building secure, scalable backend solutions with C#, ASP.NET Core, and database integration.<br>
+        Seeking to transition into full stack or backend development.
+        </p>
 
-    <p><a href="https://www.linkedin.com/in/jessie-mcadams-b01019127/">View My LinkedIn Profile</a></p>
-    <p><a href="https://github.com/jmcadams91">View My GitHub Profile</a></p>
+        <p><a href="https://www.linkedin.com/in/jessie-mcadams-b01019127/">View My LinkedIn Profile</a></p>
+        <p><a href="https://github.com/jmcadams91">View My GitHub Profile</a></p>
 
-    <p class="footer-note">Hosted on GitHub Pages</p>
-  </div>
-
-  <div class="main-content">
-    <div class="assessment-section">
-      <h1>Professional Self-Assessment</h1>
-      <p>
-          Completing the Computer Science program and developing my ePortfolio has been an evolutionary experience. My time spent at SNHU has sharpened my technical skills, clarified my professional goals, and reinforced
-          my commitment to building secure, maintainable, and ethically responsible software. Although this portfolio may not completely reflect all my work throughout the program, it demonstrates my technical growth,
-          calculated mindset, and collaborative spirit.
-      </p>
-      <p>
-          Throughout the program, I’ve cultivated a strong foundation in front end and backend architecture, data modeling, and secure API development. My coursework challenged me to think modularly, troubleshoot
-          iteratively, and document with clarity, and these are skills that are now embedded in my daily workflow. For example, in my capstone project, I restored architectural integrity by resolving Git branching issues
-          and rebuilding missing folders, ensuring traceability. These experiences taught me to treat every technical challenge as an opportunity for learning and refinement.
-      </p>
-      <p>
-          I’ve also applied these skills in real world settings outside of school. At Unum, I have collaborated across teams to advocate for quality, low risk delivery, and am undergoing active mentorship with one of our
-          senior developers. I have crafted clear and professional communications, applying my analytical background to bridge gaps between stakeholders and development teams. The ability to translate technical decisions
-          into business value has become a core part of my professional identity.
-      </p>
-      <p>
-          The program has helped me develop strengths in several key areas:
-      </p>
-      <ul>
-          <li><strong>Collaboration in a Team Environment:</strong> I thrive in cross functional settings, where empathy, clarity, and shared ownership drive results. Whether it’s restoring backend logic or mapping out use
-          cases, every task is approached with driven precision and a collaborative problem solving mindset.</li>
-          <li><strong>Communication with Stakeholders:</strong> I have developed a communication style that balances technical details with emotional intelligence. I’m able to express nuanced appreciation, document complex
-          systems, and advocate for maintainable solutions.</li>
-          <li><strong>Data Structures and Algorithms:</strong> I’ve implemented search, sort, and filtering logic in real world applications, optimizing performance while maintaining readability. My work in tripUtils.js
-          and related modules demonstrates my ability to balance algorithmic efficiency with practical usability.</li>
-          <li><strong>Software Engineering and Databases:</strong> I have built secure, scalable systems using Express, MongoDB, TypeScript, and C#. Normalized schemas, integrated middleware, and designed seed logic that
-          support reproducibility and reviewer empathy. These backend enhancements reflect a deep understanding of maintainability and modularity.</li>
-          <li><strong>Security:</strong> I’ve prioritized security at every layer, from bcrypt based password hashing to validation middleware and privacy aware architecture. I’ve also explored emerging trends like
-          homomorphic encryption and federated learning, aligning my work with ethical development principles.</li>
-      </ul>
-      <p>
-          My portfolio artifacts are intentionally structured to reflect this. Each category—Software Design and Engineering, Algorithms and Data Structures, and Databases—shows a progression from initial enhancement to
-          final polish. Together, they demonstrate my ability to build robust systems, optimize logic, and document with clarity. These artifacts are not just technical deliverables; they also represent my growth, values,
-          and readiness to contribute meaningfully to the field.
-      </p>
+        <p class="footer-note">Hosted on GitHub Pages</p>
     </div>
 
-    <h2>Computer Science Capstone</h2>
-    <h3>CS 499 | SNHU</h3>
-    <div class="project-images">
+    <div class="main-content">
+        
+        <h2>Computer Science Capstone</h2>
+        <h3>CS 499 | SNHU</h3>
+        <div class="project-images">
+        </div>
+        <div class="assessment-section">
+            <h1>Professional Self-Assessment</h1>
+            <p>
+                Completing the Computer Science program and developing my ePortfolio has been an evolutionary experience. My time spent at SNHU has sharpened my technical skills, clarified my professional goals, and reinforced
+                my commitment to building secure, maintainable, and ethically responsible software. Although this portfolio may not completely reflect all my work throughout the program, it demonstrates my technical growth,
+                calculated mindset, and collaborative spirit.
+            </p>
+            <p>
+                Throughout the program, I’ve cultivated a strong foundation in front end and backend architecture, data modeling, and secure API development. My coursework challenged me to think modularly, troubleshoot
+                iteratively, and document with clarity, and these are skills that are now embedded in my daily workflow. For example, in my capstone project, I restored architectural integrity by resolving Git branching issues
+                and rebuilding missing folders, ensuring traceability. These experiences taught me to treat every technical challenge as an opportunity for learning and refinement.
+            </p>
+            <p>
+                I’ve also applied these skills in real world settings outside of school. At Unum, I have collaborated across teams to advocate for quality, low risk delivery, and am undergoing active mentorship with one of our
+                senior developers. I have crafted clear and professional communications, applying my analytical background to bridge gaps between stakeholders and development teams. The ability to translate technical decisions
+                into business value has become a core part of my professional identity.
+            </p>
+            <p>
+                The program has helped me develop strengths in several key areas:
+            </p>
+            <ul>
+                <li><strong>Collaboration in a Team Environment:</strong> I thrive in cross functional settings, where empathy, clarity, and shared ownership drive results. Whether it’s restoring backend logic or mapping out use
+                cases, every task is approached with driven precision and a collaborative problem solving mindset.</li>
+                <li><strong>Communication with Stakeholders:</strong> I have developed a communication style that balances technical details with emotional intelligence. I’m able to express nuanced appreciation, document complex
+                systems, and advocate for maintainable solutions.</li>
+                <li><strong>Data Structures and Algorithms:</strong> I’ve implemented search, sort, and filtering logic in real world applications, optimizing performance while maintaining readability. My work in tripUtils.js
+                and related modules demonstrates my ability to balance algorithmic efficiency with practical usability.</li>
+                <li><strong>Software Engineering and Databases:</strong> I have built secure, scalable systems using Express, MongoDB, TypeScript, and C#. Normalized schemas, integrated middleware, and designed seed logic that
+                support reproducibility and reviewer empathy. These backend enhancements reflect a deep understanding of maintainability and modularity.</li>
+                <li><strong>Security:</strong> I’ve prioritized security at every layer, from bcrypt based password hashing to validation middleware and privacy aware architecture. I’ve also explored emerging trends like
+                homomorphic encryption and federated learning, aligning my work with ethical development principles.</li>
+            </ul>
+            <p>
+                My portfolio artifacts are intentionally structured to reflect this. Each category—Software Design and Engineering, Algorithms and Data Structures, and Databases—shows a progression from initial enhancement to
+                final polish. Together, they demonstrate my ability to build robust systems, optimize logic, and document with clarity. These artifacts are not just technical deliverables; they also represent my growth, values,
+                and readiness to contribute meaningfully to the field.
+            </p>
         </div>
 
     </div>

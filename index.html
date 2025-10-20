@@ -1,278 +1,200 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jessie McAdams | CS Capstone Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-image: url('/assets/images/bokeh-background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        /* A subtle glow effect for the main container, similar to your box-shadow */
+        .glow-shadow {
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white">
 
-<style>
-/* Basic page styling */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #f0f0f0; /* Light text for readability against dark background */
+    <div class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <!-- Main container with a wider max-width -->
+        <main class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-    /* Background */
-    background-image: url('/assets/images/bokeh-background.png');
-    /* NOTE: For a cleaner look, ensure the file path above points to a 
-       high-resolution image (e.g., 1920x1080 or larger) to avoid fuzziness 
-       when stretched.
-    */
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
+            <!-- Left Sidebar / Profile Section -->
+            <aside class="lg:col-span-1">
+                <!-- Frosted glass effect using Tailwind -->
+                <div class="bg-black/40 backdrop-blur-xl border border-white/20 p-6 rounded-2xl glow-shadow h-full flex flex-col text-center">
+                    <img src="/assets/images/Jess.png" 
+                         alt="Jessie McAdams Profile Picture"
+                         class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white/30 shadow-lg">
+                    
+                    <h1 class="text-2xl font-bold text-white">Jessie McAdams</h1>
+                    <p class="text-sm text-sky-300 mt-1">Business Analyst II @ Unum</p>
+                    
+                    <div class="text-sm text-slate-300 my-6 text-left space-y-4">
+                        <p>Developer | BS in Computer Science. Building secure, scalable backend solutions with C#, ASP.NET Core, and database integration.</p>
+                        <p>Seeking to transition into full stack or backend development.</p>
+                    </div>
 
-/* Frosted Window Container */
-.container {
-    display: flex;
-    max-width: 1400px; /* Wider window */
-    margin: 60px auto; /* Margin to show background */
-    padding: 40px; /* Padding inside the frosted window */
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
-    border-radius: 20px; 
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
-    
-    /* Reduced blur for a cleaner look against the background */
-    backdrop-filter: blur(8px); 
-    -webkit-backdrop-filter: blur(8px); 
-    
-    border: 1px solid rgba(255, 255, 255, 0.18); 
-    overflow: hidden; 
-    
-    /* Ensure the container is tall enough to center the sidebar content */
-    min-height: 700px; 
-}
+                    <div class="mt-auto space-y-3">
+                         <a href="https://www.linkedin.com/in/jessie-mcadams-b01019127/" target="_blank" rel="noopener noreferrer" class="block w-full bg-sky-500/20 hover:bg-sky-500/40 text-sky-300 font-medium py-2 px-4 rounded-lg transition-all duration-300 border border-sky-500/30">
+                            View My LinkedIn Profile
+                        </a>
+                        <a href="https://github.com/jmcadams91" target="_blank" rel="noopener noreferrer" class="block w-full bg-slate-500/20 hover:bg-slate-500/40 text-slate-300 font-medium py-2 px-4 rounded-lg transition-all duration-300 border border-slate-500/30">
+                            View My GitHub Profile
+                        </a>
+                    </div>
+                   
+                    <p class="text-xs text-slate-500 mt-6">Hosted on GitHub Pages</p>
+                </div>
+            </aside>
 
-/* Sidebar styling - now centered vertically */
-.sidebar {
-    width: 350px;
-    padding-right: 40px; 
-    border-right: 1px solid rgba(255, 255, 255, 0.1); 
-    
-    /* FLEXBOX CENTERING FOR PROFILE SECTION */
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    
-    /* text-align: center; */ 
-}
+            <!-- Right Main Content Section -->
+            <section class="lg:col-span-3">
+                <!-- Frosted glass effect using Tailwind -->
+                <div class="bg-black/40 backdrop-blur-xl border border-white/20 p-8 rounded-2xl glow-shadow h-full">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-white">Computer Science Capstone</h2>
+                        <p class="text-md text-slate-400 mt-1">CS 499 | SNHU</p>
+                    </div>
 
-.profile-pic {
-    width: 150px;
-    height: 150px; 
-    border-radius: 50%;
-    object-fit: cover; 
-    margin: 0 0 25px 0; 
-    border: 3px solid rgba(255, 255, 255, 0.3); 
-}
+                    <hr class="border-t border-white/20 my-6">
 
-.sidebar h1 {
-    /* Keep text-align as items are centered, but text inside needs alignment */
-    text-align: center;
-    margin-top: 0;
-    color: #fff; 
-    font-size: 2.2em; 
-}
+                    <article class="prose prose-invert max-w-none prose-p:text-slate-300 prose-headings:text-white">
+                        <h3 class="text-2xl font-bold">Professional Self-Assessment</h3>
+                        <p>
+                            Completing the Computer Science program and developing my ePortfolio has been an evolutionary experience. My time spent at SNHU has sharpened my technical skills, clarified my professional goals, and reinforced my commitment to building secure, maintainable, and ethically responsible software. Although this portfolio may not completely reflect all my work throughout the program, it demonstrates my technical growth, calculated mindset, and collaborative spirit.
+                        </p>
+                        <p>
+                            Throughout the program, I've cultivated a strong foundation in front end and backend architecture, data modeling, and secure API development. My coursework challenged me to think modularly, troubleshoot iteratively, and document with clarity, and these are skills that are now embedded in my daily workflow. This capstone project, in particular, allowed me to synthesize these skills into a cohesive and functional application.
+                        </p>
+                        
+                        <h3 class="text-2xl font-bold mt-8">Code Review</h3>
+                        <p>
+                            This section features a recorded walkthrough of my project prior to final
+                            enhancements. The video captures my initial architecture, design decisions, and
+                            areas identified for improvement—serving as a baseline for how I approached
+                            modularity, maintainability, and reviewer empathy.
+                        </p>
+                        <div class="aspect-w-16 aspect-h-9 my-6">
+                            <iframe class="w-full h-full rounded-lg shadow-lg" 
+                                src="https://www.youtube.com/embed/OS39OolIpj0" 
+                                title="Code Review Video"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
 
-.sidebar p {
-    font-size: 15px; 
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #e0e0e0; 
-    /* Ensure P tags don't stretch too wide and push content to the left */
-    max-width: 100%; 
-    text-align: center;
-}
+                        <h3 class="text-2xl font-bold mt-8">Enhancement One: Software Design and Engineering</h3>
+                        <p>
+                            I chose to advance the Travlr Getaways API to demonstrate core full stack development
+                            skills. I architected a secure and scalable backend by refactoring the system
+                            into modular controllers, implementing JWT authentication to protect data modifying
+                            endpoints, and using environment variables for configuration. A key part of the
+                            process involved debugging complex backend issues, including resolving a
+                            persistent 500 Internal Server Error caused by a database connection timeout.
+                            This project showcases my proficiency in modern backend architecture, API
+                            security, and effective problem solving in a server-side environment.
+                        </p>
+                         <div class="my-4">
+                            <a href="https://github.com/jmcadams91/jmcadams91.github.io/tree/travlr_enhancement_one" target="_blank" rel="noopener noreferrer" class="inline-block bg-sky-500/20 hover:bg-sky-500/40 text-sky-300 font-medium py-2 px-4 rounded-lg transition-all duration-300 border border-sky-500/30 text-sm">
+                                View Code for Enhancement One on GitHub
+                            </a>
+                        </div>
+                        <p>
+                            In the Software Design and Engineering category, I fully met several key course
+                            outcomes. Through enhancements such as middleware integration, route
+                            refactoring, and validation logic, I demonstrated secure coding practices and
+                            built maintainable, modular components using Express and TypeScript. These
+                            updates reflect my ability to work with industry standard frameworks and
+                            document systems clearly for reviewers and collaborators.
+                        </p>
+                        <p>
+                            However, there are still areas I’d like to expand on. While the artifact showcases
+                            strong architectural design, it does not yet include cloud deployment or
+                            serverless infrastructure—skills I intend to deepen through Azure and AWS
+                            certification. Additionally, although the code is secure and well structured,
+                            it doesn’t explicitly address ethical or legal computing implications, which I
+                            aim to incorporate into future projects.
+                        </p>
+                        
+                        <h3 class="text-2xl font-bold mt-8">Enhancement Two: Algorithms and Data Structure</h3>
+                        <p>
+                            This artifact showcases the enhanced tripsList backend controller for the Travlr Getaways
+                            application. I evolved its original logic to include dynamic, user driven
+                            features by implementing several algorithmic solutions. Key upgrades include a
+                            case insensitive search filter using regular expressions, dynamic sorting based
+                            on user selected criteria (price, rating, location), and an availability
+                            checker built on an abstracted date-comparison utility. The work is supported
+                            by a full unit test suite and annotated with notes on time complexity,
+                            demonstrating my ability to build efficient, maintainable, and well documented
+                            backend logic.
+                        </p>
+                        <div class="my-4">
+                            <a href="https://github.com/jmcadams91/jmcadams91.github.io/tree/travlr_enhancement_two" target="_blank" rel="noopener noreferrer" class="inline-block bg-sky-500/20 hover:bg-sky-500/40 text-sky-300 font-medium py-2 px-4 rounded-lg transition-all duration-300 border border-sky-500/30 text-sm">
+                                View Code for Enhancement Two on GitHub
+                            </a>
+                        </div>
+                        <p>
+                            The enhancements in this category allowed me to meet outcomes related to
+                            algorithmic implementation and performance optimization. I developed search,
+                            sort, and availability filtering logic, and introduced indexing and utility
+                            functions that improved both speed and maintainability. These updates show my
+                            ability to apply algorithmic thinking in practical, user facing contexts.
+                        </p>
+                        <p>
+                            That said, I recognize that I haven’t yet explored advanced algorithmic analysis in
+                            depth. Concepts like recursive structures, dynamic programming, or formal Big-O
+                            comparisons weren’t central to this artifact. Additionally, while the technical
+                            documentation is clear, the artifact doesn’t include communication strategies
+                            for non technical stakeholders, which is something I plan to address in future
+                            interdisciplinary work.
+                        </p>
 
-.sidebar a {
-    color: #92e0ff; 
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-.sidebar a:hover {
-    color: #c9f5ff; 
-    text-decoration: underline;
-}
+                        <h3 class="text-2xl font-bold mt-8">Enhancement Three: Databases</h3>
+                        <p>
+                            To demonstrate core backend security and database skills, I transformed the Travlr Getaways
+                            User model into a production ready Mongoose schema. This enhancement highlights
+                            my proficiency in implementing industry standard security practices, such as
+                            password hashing with bcrypt, and designing schemas with strict field level
+                            validation. The process also involved resolving real world development hurdles,
+                            including TypeScript module compatibility and system level environment
+                            configuration, showcasing my ability to build and troubleshoot secure,
+                            maintainable backend systems.
+                        </p>
+                        <div class="my-4">
+                            <a href="https://github.com/jmcadams91/jmcadams91.github.io/tree/travlr_enhancement_three" target="_blank" rel="noopener noreferrer" class="inline-block bg-sky-500/20 hover:bg-sky-500/40 text-sky-300 font-medium py-2 px-4 rounded-lg transition-all duration-300 border border-sky-500/30 text-sm">
+                                View Code for Enhancement Three on GitHub
+                            </a>
+                        </div>
+                        <p>
+                            The Databases category reflects some of my strongest progress. I fully met outcomes
+                            related to data modeling, secure query integration, and schema normalization. I
+                            built middleware for validation, implemented indexing strategies, and created
+                            reproducible seed logic, all of which support scalable, secure, and reviewer friendly
+                            backend systems.
+                        </p>
+                        <p>
+                            Still, there are opportunities to grow. This artifact hasn’t yet been deployed to a
+                            cloud based database platform like MongoDB Atlas or Azure Cosmos DB, which
+                            would demonstrate infrastructure readiness. Additionally, while the system is
+                            secure and well documented, it doesn’t explicitly model ethical data handling
+                            frameworks such as GDPR or HIPAA—topics I’d like to explore as I deepen my
+                            understanding of privacy aware architecture.
+                        </p>
+                    </article>
+                </div>
+            </section>
 
-/* Main content styling - takes up remaining space */
-.main-content {
-    flex-grow: 1; /* Key for expanding main content */
-    padding-left: 40px; 
-    text-align: left; 
-}
-
-.main-content h1 { 
-    font-size: 2.5em; 
-    color: #fff; 
-    margin-top: 0;
-    margin-bottom: 25px;
-    font-weight: bold;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-    padding-bottom: 15px;
-}
-
-.main-content h2, .main-content h3 {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-    padding-bottom: 10px;
-    margin-top: 30px;
-    color: #fff; 
-}
-/* Adjust margin for the Capstone header when it's at the very top */
-.main-content > h2:first-child {
-    margin-top: 0; 
-}
-
-
-.main-content h4 {
-    margin-bottom: 10px;
-    margin-top: 25px;
-    color: #e0e0e0; 
-}
-
-.assessment-section p { 
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #e0e0e0;
-}
-
-.assessment-section ul {
-    list-style-type: none; 
-    padding-left: 0; 
-}
-
-.assessment-section ul li {
-    margin-bottom: 10px;
-    font-size: 15px;
-    line-height: 1.6;
-    color: #e0e0e0;
-    padding-left: 20px; 
-    position: relative;
-}
-
-.assessment-section ul li:before { 
-    content: "•";
-    color: #92e0ff; 
-    position: absolute;
-    left: 0;
-    font-size: 1.2em;
-    line-height: 1;
-}
-
-.project-images {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
-
-.project-images img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid rgba(255, 255, 255, 0.2); 
-    border-radius: 8px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.footer-note {
-    font-size: 0.8em;
-    color: #b0b0b0; 
-    margin-top: auto; /* Pushes the footer note to the bottom of the flex container */
-    text-align: center;
-}
-
-
-/* Responsive layout for smaller screens */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        margin: 20px auto;
-        padding: 20px;
-        border-radius: 10px;
-    }
-    .sidebar {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding-right: 0;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        width: 100%;
-        
-        /* Reset vertical centering on small screens */
-        justify-content: flex-start; 
-        align-items: center;
-    }
-    .main-content { padding-left: 0; }
-    .project-images { grid-template-columns: 1fr; } 
-    .sidebar h1, .main-content h1 { font-size: 1.8em; }
-    .sidebar p, .assessment-section p, .assessment-section ul li { font-size: 14px; }
-}
-</style>
-
-<div class="container">
-    <div class="sidebar">
-        <h1>Jessie McAdams</h1>
-        <img src="/assets/images/Jess.png" alt="Jessie McAdams" class="profile-pic">
-
-        <p>
-        Business Analyst II @ Unum | CS Capstone Developer | BS in Computer Science<br>
-        Building secure, scalable backend solutions with C#, ASP.NET Core, and database integration.<br>
-        Seeking to transition into full stack or backend development.
-        </p>
-
-        <p><a href="https://www.linkedin.com/in/jessie-mcadams-b01019127/">View My LinkedIn Profile</a></p>
-        <p><a href="https://github.com/jmcadams91">View My GitHub Profile</a></p>
-
-        <p class="footer-note">Hosted on GitHub Pages</p>
+        </main>
     </div>
 
-    <div class="main-content">
-        
-        <h2>Computer Science Capstone</h2>
-        <h3>CS 499 | SNHU</h3>
-        <div class="project-images">
-        </div>
-        <div class="assessment-section">
-            <h1>Professional Self-Assessment</h1>
-            <p>
-                Completing the Computer Science program and developing my ePortfolio has been an evolutionary experience. My time spent at SNHU has sharpened my technical skills, clarified my professional goals, and reinforced
-                my commitment to building secure, maintainable, and ethically responsible software. Although this portfolio may not completely reflect all my work throughout the program, it demonstrates my technical growth,
-                calculated mindset, and collaborative spirit.
-            </p>
-            <p>
-                Throughout the program, I’ve cultivated a strong foundation in front end and backend architecture, data modeling, and secure API development. My coursework challenged me to think modularly, troubleshoot
-                iteratively, and document with clarity, and these are skills that are now embedded in my daily workflow. For example, in my capstone project, I restored architectural integrity by resolving Git branching issues
-                and rebuilding missing folders, ensuring traceability. These experiences taught me to treat every technical challenge as an opportunity for learning and refinement.
-            </p>
-            <p>
-                I’ve also applied these skills in real world settings outside of school. At Unum, I have collaborated across teams to advocate for quality, low risk delivery, and am undergoing active mentorship with one of our
-                senior developers. I have crafted clear and professional communications, applying my analytical background to bridge gaps between stakeholders and development teams. The ability to translate technical decisions
-                into business value has become a core part of my professional identity.
-            </p>
-            <p>
-                The program has helped me develop strengths in several key areas:
-            </p>
-            <ul>
-                <li><strong>Collaboration in a Team Environment:</strong> I thrive in cross functional settings, where empathy, clarity, and shared ownership drive results. Whether it’s restoring backend logic or mapping out use
-                cases, every task is approached with driven precision and a collaborative problem solving mindset.</li>
-                <li><strong>Communication with Stakeholders:</strong> I have developed a communication style that balances technical details with emotional intelligence. I’m able to express nuanced appreciation, document complex
-                systems, and advocate for maintainable solutions.</li>
-                <li><strong>Data Structures and Algorithms:</strong> I’ve implemented search, sort, and filtering logic in real world applications, optimizing performance while maintaining readability. My work in tripUtils.js
-                and related modules demonstrates my ability to balance algorithmic efficiency with practical usability.</li>
-                <li><strong>Software Engineering and Databases:</strong> I have built secure, scalable systems using Express, MongoDB, TypeScript, and C#. Normalized schemas, integrated middleware, and designed seed logic that
-                support reproducibility and reviewer empathy. These backend enhancements reflect a deep understanding of maintainability and modularity.</li>
-                <li><strong>Security:</strong> I’ve prioritized security at every layer, from bcrypt based password hashing to validation middleware and privacy aware architecture. I’ve also explored emerging trends like
-                homomorphic encryption and federated learning, aligning my work with ethical development principles.</li>
-            </ul>
-            <p>
-                My portfolio artifacts are intentionally structured to reflect this. Each category—Software Design and Engineering, Algorithms and Data Structures, and Databases—shows a progression from initial enhancement to
-                final polish. Together, they demonstrate my ability to build robust systems, optimize logic, and document with clarity. These artifacts are not just technical deliverables; they also represent my growth, values,
-                and readiness to contribute meaningfully to the field.
-            </p>
-        </div>
+</body>
+</html>
 
-    </div>
-</div>
